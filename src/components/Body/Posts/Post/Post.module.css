@@ -1,0 +1,15 @@
+.item{
+  margin: 10px;
+  background-color: #deec8d;
+  display: flex;
+}
+
+.img{
+  width: 50px;
+  background-image: url("./flower.jpg");
+}
+
+.text{
+  
+  color: rgb(3, 61, 61);
+}

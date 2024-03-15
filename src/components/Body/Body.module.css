@@ -1,0 +1,9 @@
+.body{
+  grid-area: body;
+  background-color: burlywood;
+}
+
+.headerimg{
+  /* width: 100%; */
+  display: block;
+}
