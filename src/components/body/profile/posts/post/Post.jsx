@@ -1,5 +1,5 @@
 
-import s from "./Post.module.css";
+import s from "./post.module.css";
 import pic from "./flower.jpg";
 
 const Post = () => {

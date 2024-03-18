@@ -1,6 +1,6 @@
 
-import Post from "./Post/Post";
-import s from "./Posts.module.css";
+import Post from "./post/Post";
+import s from "./posts.module.css";
 
 const Posts = () => {
   return(

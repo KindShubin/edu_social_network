@@ -1,6 +1,6 @@
 
-import s from "./Body.module.css";
-import Posts from "./Posts/Posts";
+import s from "./profile.module.css";
+import Posts from "./posts/Posts";
 
 const Body = () => {
   return(

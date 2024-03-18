@@ -1,12 +1,12 @@
 //import logo from '../../public/logo.jpg';
 import logo from './logo.jpg';
-import s from "./Header.module.css";
+import s from "./header.module.css";
 
 function Header() {
   return(
     <header className={s.header}>
       
-      <img src="./logo.jpg" alt="logo"></img>
+      <img src={logo} alt="logo"></img>
     </header>
   )
 }

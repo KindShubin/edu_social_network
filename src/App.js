@@ -1,7 +1,7 @@
-import s from './App.module.css';
-import Header from './components/Header/Header';
-import Navigation from './components/Navigation/Navigation';
-import Body from './components/Body/Body';
+import s from './app.module.css';
+import Header from './components/header/Header';
+import Navigation from './components/navigation/Navigation';
+import Body from './components/body/profile/Profile';
 
 function App() {
   return (
