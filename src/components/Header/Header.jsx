@@ -5,7 +5,6 @@ import s from "./header.module.css";
 function Header() {
   return(
     <header className={s.header}>
-      
       <img src={logo} alt="logo"></img>
     </header>
   )
