@@ -1,0 +1,14 @@
+.message{
+  max-width: 500px;
+  display: flex;
+}
+.username{
+  color: #5e5e5e;
+  width: 100px;
+  margin-right: 15px;
+  flex-basis: 100px;
+}
+.text{
+  font-style: italic;
+  flex-basis: 350px;
+}

@@ -1,0 +1,13 @@
+.user{
+  font-size: 1.3em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.avatar{
+  width: 50px;
+  border-radius: 10px;
+  margin-right: 20px;
+}

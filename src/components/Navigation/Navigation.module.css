@@ -2,3 +2,20 @@
   grid-area: nav;
   background-color: rgb(192, 154, 228);
 }
+
+.nav a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav a.active{
+  color: green;
+}
+
+.nav a.pending{
+  color: red;
+}
+
+.nav a:hover{
+  color: yellow;
+}

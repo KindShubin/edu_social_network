@@ -1,0 +1,11 @@
+.body{
+  grid-area: body;
+  background-color: burlywood;
+}
+
+.headerimg{
+  height: 200px;
+  display: block;
+  background: url('https://t3.ftcdn.net/jpg/02/44/45/82/240_F_244458280_6xD032FsVAVLNsLkYAhcizpLV3Yoo8Bk.jpg') center/100% auto no-repeat;
+  width: auto;
+}
