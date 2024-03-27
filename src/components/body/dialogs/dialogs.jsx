@@ -1,11 +1,13 @@
 import s from "./dialogs.module.css";
-import ListConversations from "./listConversations/listConversations";
+import Contacts from "./contacts/contacts";
 import Messages from "./messages/messages";
 
 const Dialogs = () => {
+  let currentUser;
+
   return (
     <div className={s.dialogs}>
-      <ListConversations />
+      <Contacts />
       <Messages />
     </div>
   )
