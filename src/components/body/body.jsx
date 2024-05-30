@@ -21,7 +21,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-const Body = () => {
+const Body = ( {data, dispatch} ) => {
+
   return (
     <div className={s.body}>
       <div className={s.headerimg}></div>
@@ -30,8 +31,8 @@ const Body = () => {
       {/* <BrowserRouter > */}
         <div>121212</div>
         <Routes>
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/dialogs/*' element={<Dialogs />} />
+          <Route path='/profile' element={<Profile profile={data.profile} dispatch={dispatch} />} />
+          <Route path='/dialogs/*' element={<Dialogs dialogs={data.dialogs}/>} />
           <Route path='/music' element={<Music />} />
         </Routes>
       {/* </BrowserRouter> */}

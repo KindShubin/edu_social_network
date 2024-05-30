@@ -1,11 +1,11 @@
 import s from "./contact.module.css";
 
 //props.user
-const Contact = (props) => {
+const Contact = ( {user} ) => {
   return (
     <div className={s.user}>
-      <img src={props.user.avatar} alt="avatar" className={s.avatar}></img>
-      <div>{props.user.name}</div>
+      <img src={user.avatar} alt="avatar" className={s.avatar}></img>
+      <div>{user.name}</div>
     </div>
   )
 }

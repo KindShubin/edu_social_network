@@ -2,13 +2,12 @@ import s from "./dialogs.module.css";
 import Contacts from "./contacts/contacts";
 import Messages from "./messages/messages";
 
-const Dialogs = () => {
-  let currentUser;
+const Dialogs = ( {dialogs: {contacts, messages}} ) => {
 
   return (
     <div className={s.dialogs}>
-      <Contacts />
-      <Messages />
+      <Contacts contacts={contacts}/>
+      <Messages messages={messages}/>
     </div>
   )
 }

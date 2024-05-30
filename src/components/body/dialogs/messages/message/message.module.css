@@ -1,6 +1,7 @@
 .message{
   max-width: 500px;
   display: flex;
+  justify-content: space-between;
 }
 .username{
   color: #5e5e5e;
@@ -11,4 +12,9 @@
 .text{
   font-style: italic;
   flex-basis: 350px;
+}
+.date{
+  color: #5e5e5e;
+  font-size: 0.7rem;
+  flex-basis: 70px;
 }

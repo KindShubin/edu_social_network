@@ -1,12 +1,14 @@
+
 import s from "./message.module.css";
 
-//props.fromuser
-//props.message
-const Message = (props) => {
+
+const Message = ( {fromUser, toUser, date, message}) => {
+
   return (
     <div className={s.message}>
-      <div className={s.username}>{props.fromuser.name}</div>
-      <div className={s.text}>{props.message}</div>
+      <div className={s.username}>{fromUser}</div>
+      <div className={s.text}>{message}</div>
+      <div className={s.date}>{date}</div>
     </div>
   )
 }

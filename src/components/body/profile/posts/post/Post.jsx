@@ -1,14 +1,13 @@
 
 import s from "./post.module.css";
-import pic from "./flower.jpg";
+//import pic from "./flower.jpg";
 
 const Post = (props) => {
-  console.log(props);
   return(
     <div className={s.item}>
-      <div className={s.img}/>
-      {/* <img className={s.img} src={pic} alt="pic"></img> */}
+      <img src={props.pic} alt="post img" className={s.img} />
       <div className={s.text}>{props.text}</div>
+      {/* <div className={s.text}>{props.text.replace('\n','<br>')}</div> */}
       <div className={s.date}>{props.date}</div>
     </div>
   )
