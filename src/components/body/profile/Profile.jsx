@@ -2,6 +2,7 @@
 import s from "./profile.module.css";
 import Posts from "./posts/posts";
 import AddPosts from "./addPosts/addPosts";
+//123
 
 const Profile = ({profile, dispatch}) => {
 
