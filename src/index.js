@@ -7,13 +7,15 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
 
-const reRender = () => {
+const reRender = (state) => {
+
   root.render(
     <React.StrictMode>
-      <App store={store}/>
+      <App state={state} dispatch={store.dispatch.bind(store)}/>
       {/* <RouterProvider router={router} /> */}
     </React.StrictMode>
   );
-}
+};
+
 store.subscribe(reRender);
-reRender();
+reRender(store.getState());

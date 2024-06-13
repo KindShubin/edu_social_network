@@ -22,7 +22,7 @@ const router = createBrowserRouter([
 ]);
 
 const Body = ( {data, dispatch} ) => {
-
+  
   return (
     <div className={s.body}>
       <div className={s.headerimg}></div>

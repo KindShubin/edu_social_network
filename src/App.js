@@ -4,14 +4,14 @@ import Navigation from './components/navigation/navigation';
 import Body from './components/body/body';
 import { BrowserRouter } from "react-router-dom";
 
-function App( {store} ) {
+function App( {state, dispatch} ) {
 
   return (
     <div className={s.wrapper}>
       <BrowserRouter >
         <Header />
         <Navigation />
-        <Body data={store.getState()} dispatch={store.dispatch.bind(store)}/>
+        <Body data={state} dispatch={dispatch}/>
         {/* <Body data={store.getState()} dispatch={(action) => store.dispatch(action)}/> */}
       </BrowserRouter>
     </div>

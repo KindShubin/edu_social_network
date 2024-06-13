@@ -2,10 +2,8 @@ import pic1 from './wolf.jpg';
 import pic2 from './flower.jpg';
 import pic3 from './pringles.jpg';
 
-let _subscriber = () => {
-  console.log('rerender with state');
-}
-
+const ADD_POST = 'ADD-POST';
+const PRINT_NEW_POST_TEXT = "PRINT-NEW-POST-TEXT";
 
 let store = {
   _state: {
@@ -36,13 +34,16 @@ let store = {
       ],
     },
   },
+  _subscriber() {
+    console.log('no observers now');
+  },
 
   // management methods
   getState() {
     return this._state;
   },
   subscribe(observer) {
-    _subscriber = observer;
+    this._subscriber = observer;
   },
 
   // change state methods
@@ -64,14 +65,21 @@ let store = {
     }
     this._state.profile.posts.push(obj);
     this._state.profile.textNewPost = "";
-    _subscriber();
+    this._subscriber(this._state);
   },
 
   _printNewPostText(message) {
     this._state.profile.textNewPost = message;
-    _subscriber();
+    this._subscriber(this._state);
   }
 }
+
+export const createActionAddPost = () => ( {type: ADD_POST} );
+
+export const createActionPrintNewPost = (text) => ({
+  type: PRINT_NEW_POST_TEXT,
+  message: text
+})
 
 export default store;
 window.store = store;
