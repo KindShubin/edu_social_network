@@ -32,7 +32,7 @@ const Body = ( {data, dispatch} ) => {
         <div>121212</div>
         <Routes>
           <Route path='/profile' element={<Profile profile={data.profile} dispatch={dispatch} />} />
-          <Route path='/dialogs/*' element={<Dialogs dialogs={data.dialogs}/>} />
+          <Route path='/dialogs/*' element={<Dialogs dialogs={data.dialogs} dispatch={dispatch}/>} />
           <Route path='/music' element={<Music />} />
         </Routes>
       {/* </BrowserRouter> */}

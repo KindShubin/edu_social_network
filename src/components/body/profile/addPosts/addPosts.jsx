@@ -1,17 +1,17 @@
 
 import { useRef } from "react";
 import s from "./addPosts.module.css";
-import { createActionAddPost, createActionPrintNewPost } from "../../../../data/state";
+import { addPostActionCreator, printNewPostActionCreator } from "../../../../data/state";
 
 const AddPosts = ({ textNewPost, dispatch }) => {
 
   const textA = useRef(null);
 
   const printNewPostText = () => {
-    dispatch( createActionPrintNewPost(textA.current.value) );
+    dispatch( printNewPostActionCreator(textA.current.value) );
   }
   const addPost = () => {
-    dispatch( createActionAddPost() );
+    dispatch( addPostActionCreator() );
   }
 
   return (

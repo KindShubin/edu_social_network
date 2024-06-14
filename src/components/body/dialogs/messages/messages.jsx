@@ -1,7 +1,21 @@
 import Message from "./message/message";
 import s from "./messages.module.css";
+import { printNewMessageActionCreator, addMessageActionCreator } from "../../../../data/state";
 
-const Messages = ({messages}) => {
+const Messages = ({messages, textMessage, dispatch}) => {
+
+  const onChangeTextMessage = (e) => {
+
+    dispatch( printNewMessageActionCreator(e.target.value));
+
+  }
+
+  const onClickButton = (e) => {
+    console.log('*****************');
+    console.log(e);
+    dispatch( addMessageActionCreator() );
+  }
+
   return (
     <div className={s.messages}>
       {messages.map((msg, indx) => 
@@ -11,6 +25,8 @@ const Messages = ({messages}) => {
           date={msg.date}
           message={msg.message}
         />)}
+        <textarea value={textMessage} onChange={ onChangeTextMessage }></textarea>
+        <button onClick={ onClickButton }  >Send</button>
     </div>
   )
 }

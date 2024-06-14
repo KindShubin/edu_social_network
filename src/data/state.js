@@ -2,8 +2,10 @@ import pic1 from './wolf.jpg';
 import pic2 from './flower.jpg';
 import pic3 from './pringles.jpg';
 
-const ADD_POST = 'ADD-POST';
+const ADD_POST = "ADD-POST";
 const PRINT_NEW_POST_TEXT = "PRINT-NEW-POST-TEXT";
+const PRINT_NEW_MESSAGE_TEXT = "PRINT-NEW-MESSAGE-TEXT";
+const ADD_MESSAGE = "ADD-MESSAGE";
 
 let store = {
   _state: {
@@ -32,6 +34,7 @@ let store = {
         { fromUser: 'Pavel', toUser: 'Dmitriy', date: '2030-12-22', message: "P0ng" },
         { fromUser: 'Dmitriy', toUser: 'Pavel', date: '2020-12-22', message: "t consectetur adipisicing elit. Esse exercitationem sapiente, vel possimus m" },
       ],
+      textMessage: "",
     },
   },
   _subscriber() {
@@ -52,6 +55,10 @@ let store = {
       this._addPost();
     } else if (action.type === "PRINT-NEW-POST-TEXT"){
       this._printNewPostText(action.message);
+    } else if (action.type === "PRINT-NEW-MESSAGE-TEXT"){
+      this._printNewMessage(action.message)
+    } else if (action.type === "ADD-MESSAGE"){
+      this._addMessage();
     }
   },
 
@@ -71,15 +78,40 @@ let store = {
   _printNewPostText(message) {
     this._state.profile.textNewPost = message;
     this._subscriber(this._state);
+  },
+
+  _printNewMessage(messageText){
+    this._state.dialogs.textMessage = messageText;
+    this._subscriber(this._state);
+  },
+
+  _addMessage() {
+    //{ fromUser: 'Dmitriy', toUser: 'Pavel', date: '2030-12-22', message: "Ping" },
+    this._state.dialogs.messages.push({
+      fromUser: "Dmitriy",
+      toUser: "Valera",
+      date: new Date().toString(),
+      message: this._state.dialogs.textMessage,
+    });
+    this._state.dialogs.textMessage = "";
+    this._subscriber(this._state);
   }
 }
 
-export const createActionAddPost = () => ( {type: ADD_POST} );
+// Action creators
+export const addPostActionCreator = () => ( {type: ADD_POST} );
 
-export const createActionPrintNewPost = (text) => ({
+export const printNewPostActionCreator = (text) => ({
   type: PRINT_NEW_POST_TEXT,
-  message: text
-})
+  message: text,
+});
+
+export const addMessageActionCreator = () => ( {type: ADD_MESSAGE} );
+
+export const printNewMessageActionCreator = (messageText) => ({
+  type: PRINT_NEW_MESSAGE_TEXT,
+  message: messageText
+});
 
 export default store;
 window.store = store;
