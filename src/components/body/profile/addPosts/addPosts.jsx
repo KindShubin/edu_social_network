@@ -1,7 +1,7 @@
 
 import { useRef } from "react";
 import s from "./addPosts.module.css";
-import { addPostActionCreator, printNewPostActionCreator } from "../../../../data/state";
+import { addPostActionCreator, printNewPostActionCreator } from "../../../../data/store/reducers/reducerProfile";
 
 const AddPosts = ({ textNewPost, dispatch }) => {
 

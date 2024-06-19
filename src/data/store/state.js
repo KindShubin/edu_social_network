@@ -1,11 +1,10 @@
-import pic1 from './wolf.jpg';
-import pic2 from './flower.jpg';
-import pic3 from './pringles.jpg';
+import pic1 from '../wolf.jpg';
+import pic2 from '../flower.jpg';
+import pic3 from '../pringles.jpg';
+import reducerProfile from './reducers/reducerProfile';
+import reducerDialogs from './reducers/reducerDialogs';
+import reducerSidebar from './reducers/reducerSidebar';
 
-const ADD_POST = "ADD-POST";
-const PRINT_NEW_POST_TEXT = "PRINT-NEW-POST-TEXT";
-const PRINT_NEW_MESSAGE_TEXT = "PRINT-NEW-MESSAGE-TEXT";
-const ADD_MESSAGE = "ADD-MESSAGE";
 
 let store = {
   _state: {
@@ -36,6 +35,7 @@ let store = {
       ],
       textMessage: "",
     },
+    sidebar: {}
   },
   _subscriber() {
     console.log('no observers now');
@@ -51,67 +51,13 @@ let store = {
 
   // change state methods
   dispatch(action){
-    if (action.type === "ADD-POST") {
-      this._addPost();
-    } else if (action.type === "PRINT-NEW-POST-TEXT"){
-      this._printNewPostText(action.message);
-    } else if (action.type === "PRINT-NEW-MESSAGE-TEXT"){
-      this._printNewMessage(action.message)
-    } else if (action.type === "ADD-MESSAGE"){
-      this._addMessage();
-    }
-  },
-
-  _addPost() {
-    let indx = 0;
-    this._state.profile.posts.forEach((elem) => indx = elem.id > indx ? elem.id : indx);
-    const obj = {
-      id: indx + 1,
-      pic: pic1,
-      text: this._state.profile.textNewPost,
-    }
-    this._state.profile.posts.push(obj);
-    this._state.profile.textNewPost = "";
+    this._state.dialogs = reducerDialogs(this._state.dialogs, action);
+    this._state.profile = reducerProfile(this._state.profile, action);
+    this._state.sidebar = reducerSidebar(this._state.sidebar, action);
     this._subscriber(this._state);
   },
 
-  _printNewPostText(message) {
-    this._state.profile.textNewPost = message;
-    this._subscriber(this._state);
-  },
-
-  _printNewMessage(messageText){
-    this._state.dialogs.textMessage = messageText;
-    this._subscriber(this._state);
-  },
-
-  _addMessage() {
-    //{ fromUser: 'Dmitriy', toUser: 'Pavel', date: '2030-12-22', message: "Ping" },
-    this._state.dialogs.messages.push({
-      fromUser: "Dmitriy",
-      toUser: "Valera",
-      date: new Date().toString(),
-      message: this._state.dialogs.textMessage,
-    });
-    this._state.dialogs.textMessage = "";
-    this._subscriber(this._state);
-  }
 }
-
-// Action creators
-export const addPostActionCreator = () => ( {type: ADD_POST} );
-
-export const printNewPostActionCreator = (text) => ({
-  type: PRINT_NEW_POST_TEXT,
-  message: text,
-});
-
-export const addMessageActionCreator = () => ( {type: ADD_MESSAGE} );
-
-export const printNewMessageActionCreator = (messageText) => ({
-  type: PRINT_NEW_MESSAGE_TEXT,
-  message: messageText
-});
 
 export default store;
 window.store = store;
