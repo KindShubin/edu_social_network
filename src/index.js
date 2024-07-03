@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import store from './data/store/state';
+// import store from './data/store/store';
+import store from './data/store/redux-store';
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,5 +18,8 @@ const reRender = (state) => {
   );
 };
 
-store.subscribe(reRender);
+// store.subscribe(reRender);
+store.subscribe(() => {
+  reRender(store.getState());
+});
 reRender(store.getState());

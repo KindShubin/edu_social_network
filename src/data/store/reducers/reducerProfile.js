@@ -1,9 +1,19 @@
 import pic1 from '../../wolf.jpg';
+import pic2 from '../../flower.jpg';
+import pic3 from '../../pringles.jpg';
 
 const ADD_POST = "ADD-POST";
 const PRINT_NEW_POST_TEXT = "PRINT-NEW-POST-TEXT";
 
-function reducerProfile(state, action){
+const initialState = {
+  posts: [
+    { id: 1, pic: pic1, text: "lorem", date: new Date().toLocaleDateString(), },
+    { id: 2, pic: pic2, text: "LoremLorem\nipsum\ndolor sit amet consectetur adipisicing elit. Esse exercitationem sapiente, vel possimus minus assumenda totam maiores! Nostrum expedita perspiciatis iure ea culpa magni, quis tempora nam dignissimos temporibus dolore!", date: new Date().toLocaleDateString(), },
+    { id: 3, pic: pic3, text: "loremThe map() method of Array instances creates a new array populated with the results of calling a provided function on every element in the calling array.", date: new Date().toLocaleDateString(), },
+  ],
+  textNewPost: "",};
+
+function reducerProfile(state = initialState, action){
 
     switch (action.type) {
         case ADD_POST : {
