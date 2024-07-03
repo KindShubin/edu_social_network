@@ -1,6 +1,5 @@
 import { combineReducers, createStore } from "redux";
 import reducerProfile from "./reducers/reducerProfile";
-import Dialogs from "../../components/body/dialogs/dialogs";
 import reducerDialogs from "./reducers/reducerDialogs";
 import reducerSidebar from "./reducers/reducerSidebar";
 

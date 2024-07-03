@@ -39,7 +39,7 @@ const _addMessage = state => {
     state.messages.push({
         fromUser: "Dmitriy",
         toUser: "Valera",
-        date: new Date().toString(),
+        date: _formatDate(),
         message: state.textMessage,
     });
     state.textMessage = "";
@@ -49,7 +49,14 @@ const _printNewMessage = (state, messageText) => {
     state.textMessage = messageText;
 };
 
-//const _formatDate
+const _formatDate = () => {
+  const nowDate = new Date();
+  const year = nowDate.getFullYear();
+  const month = nowDate.getMonth();
+  const day = nowDate.getDay();
+  return `${year}-${month}-${day}`;
+}
+
 
 // Actions creators
 export const addMessageActionCreator = () => ( {type: ADD_MESSAGE} );
