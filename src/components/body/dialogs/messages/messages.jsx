@@ -15,9 +15,6 @@ const Messages = ({ messages, textMessage, dispatch }) => {
   }
 
   const onClickButton = (e) => {
-    console.log('*****************');
-    console.log(e);
-    console.log(location);
     dispatch(addMessageActionCreator());
   }
 
